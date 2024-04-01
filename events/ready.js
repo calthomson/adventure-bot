@@ -23,6 +23,7 @@ module.exports = {
         });
 
         async function scrape() {
+            console.log("Inside scrape")
             const browser = await playwright.chromium.launch({ headless: true });
 
             try {
