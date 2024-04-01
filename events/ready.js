@@ -24,9 +24,8 @@ module.exports = {
 
         async function scrape() {
             console.log("Inside scrape")
-            const browser = await playwright.chromium.launch({ headless: true });
-
             try {
+                const browser = await playwright.chromium.launch({ headless: true });
                 console.log("Fetching page")
                 const page = await browser.newPage();
                 await page.goto('https://www.nps.gov/yose/planyourvisit/tioga.htm');
