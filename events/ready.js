@@ -26,6 +26,7 @@ module.exports = {
             console.log("Inside scrape")
             try {
                 // const browser = await playwright.chromium.launch({ headless: true });
+                console.log("process.env.BROWSER_PLAYWRIGHT_ENDPOINT", process.env.BROWSER_PLAYWRIGHT_ENDPOINT)
                 const browser = await playwright.chromium.connect(process.env.BROWSER_PLAYWRIGHT_ENDPOINT);
                 console.log("Fetching page")
                 const page = await browser.newPage();
