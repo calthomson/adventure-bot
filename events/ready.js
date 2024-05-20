@@ -12,8 +12,8 @@ module.exports = {
         const channel_id = "1207717262870446130";
         const channel = client.channels.cache.get(channel_id);
 
-        // Schedule a task to run at 9:00AM each day.
-        cron.schedule('0 9 * * *', async () => {
+        // Schedule a task to run at 10:00AM each day.
+        cron.schedule('0 10 * * *', async () => {
             console.log("Running scraper cron.")
             await scrape();
         }, {
