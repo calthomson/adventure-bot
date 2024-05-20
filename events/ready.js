@@ -9,13 +9,11 @@ module.exports = {
 
         console.log("Starting scraper cron.")
 
-        const channel_id = "1242146394010288229"; // "1207717262870446130";
+        const channel_id =  "1207717262870446130"; // "1242146394010288229"; // Test channel
         const channel = client.channels.cache.get(channel_id);
 
         // Schedule a task to run at 10:00AM each day.
-        // cron.schedule('0 10 * * *', async () => {
-        // Test: Run once every minute.
-        cron.schedule('* * * * *', async () => {
+        cron.schedule('0 10 * * *', async () => {
             console.log("Running scraper cron.")
             await scrape();
         }, {
@@ -26,11 +24,7 @@ module.exports = {
         async function scrape() {
             console.log("Inside scrape")
             try {
-                // const browser = await playwright.chromium.launch({ headless: true });
-                // console.log("process.env.BROWSER_PLAYWRIGHT_ENDPOINT", process.env.BROWSER_PLAYWRIGHT_ENDPOINT)
-                // Error: Unable to connect to browerless endpoint
                 const browser = await playwright.chromium.connect(process.env.BROWSER_PLAYWRIGHT_ENDPOINT);
-                // Debug: Never reach this
                 console.log("Fetching page")
                 const page = await browser.newPage();
                 await page.goto('https://www.nps.gov/yose/planyourvisit/tioga.htm');
